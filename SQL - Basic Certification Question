@@ -6,3 +6,4 @@ Query 5 : select distinct(company_name) from works
 Query 6 : select count(genre) as fiction_count from books where genre = 'Fiction'
 Query 7 : select movie_name from cinema where rating > 7 and rating < 9
 Query 8 : select book_id ,title, author , published_year from library where rating isnull
+Query 9 : select employee_name , company , salary from employees where category = 'Full-Time' order by salary desc
