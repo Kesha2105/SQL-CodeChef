@@ -1,0 +1,8 @@
+Query 1 : select * from products
+Query 2 : select product_name , category from products where price > 100.00
+Query 3 : select avg(salary) as avg_salary from works
+Query 4 : select department_name, location from departments where location like 'S%' 
+Query 5 : select distinct(company_name) from works
+Query 6 : select count(genre) as fiction_count from books where genre = 'Fiction'
+Query 7 : select movie_name from cinema where rating > 7 and rating < 9
+Query 8 : select book_id ,title, author , published_year from library where rating isnull
