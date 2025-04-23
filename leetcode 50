@@ -1,8 +1,8 @@
-leetcode sql 50
+leetcode sql 50 --> MS SQL SERVER
 
 // select queries
 1. select product_id from products where low_fats = 'Y' and recyclable = 'Y'
 2. select name from customer where  referee_id!=2 or referee_id is null;
 3. select name , population , area from world where population >= 25000000 or area >= 3000000
 4. select distinct(author_id) as id from views where author_id = viewer_id order by author_id
-5.
+5. select tweet_id from tweets where len(content) > 15
