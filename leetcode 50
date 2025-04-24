@@ -21,3 +21,43 @@ and a1.machine_id=a2.machine_id
 and a1.timestamp<a2.timestamp
 group by a1.machine_id;
 6. select e.name , b.bonus from employee e left join bonus b on e.empId = b.empId where (bonus is null or b.bonus < 1000)
+7. SELECT
+    S.student_id
+    ,S.student_name
+    ,SU.subject_name
+    ,COUNT(E.student_id) attended_exams
+FROM Students S
+CROSS JOIN Subjects SU
+LEFT JOIN Examinations E
+    ON S.student_id = E.student_id
+    AND SU.subject_name = E.subject_name
+
+GROUP BY S.student_id, S.student_name, SU.subject_name
+ORDER BY S.student_id, S.student_name, SU.subject_name
+8. SELECT E1.name
+FROM Employee E1
+JOIN (
+    SELECT managerId, COUNT(*) AS directReports
+    FROM Employee
+    GROUP BY managerId
+    HAVING COUNT(*) >= 5
+) E2 ON E1.id = E2.managerId;
+9. SELECT
+    s.user_id,
+    ROUND(
+        AVG(
+            CASE 
+                WHEN c.action = 'confirmed' THEN 1.00
+                ELSE 0
+            END
+        ),
+        2
+    ) confirmation_rate
+FROM
+    Signups s
+LEFT JOIN
+    Confirmations c
+    ON
+    s.user_id = c.user_id
+GROUP BY
+    s.user_id
