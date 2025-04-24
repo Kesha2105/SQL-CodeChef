@@ -11,3 +11,13 @@ leetcode sql 50 --> MS SQL SERVER
 1. select e.unique_id , em.name from employees em left join  employeeuni e on em.id = e.id
 2. select p.product_name , s.year , s.price from sales s join product p on s.product_id = p.product_id
 3. select v.customer_id , count(v.visit_id) as count_no_trans from visits v left join transactions t on v.visit_id = t.visit_id where t.transaction_id is null group by v.customer_id
+4. select w1.id from weather w1 join weather w2 on W1.recordDate = DATEADD(day, 1, W2.recordDate) where w1.temperature > w2.temperature
+5. select a1.machine_id
+, ROUND(AVG(a2.timestamp - a1.timestamp),3) as processing_time
+from Activity a1
+join Activity a2
+on a1.process_id=a2.process_id
+and a1.machine_id=a2.machine_id
+and a1.timestamp<a2.timestamp
+group by a1.machine_id;
+6. select e.name , b.bonus from employee e left join bonus b on e.empId = b.empId where (bonus is null or b.bonus < 1000)
