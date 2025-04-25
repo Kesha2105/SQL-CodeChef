@@ -65,3 +65,17 @@ GROUP BY
 
 // basic aggrigate  function
 1. select * from cinema where id%2!=0 and description != 'boring' order by rating desc
+2. SELECT 
+    p.product_id,
+    ROUND(
+        ISNULL(SUM(us.units * p.price * 1.0) / NULLIF(SUM(us.units), 0), 0),
+        2
+    ) AS average_price
+FROM 
+    Prices p
+LEFT JOIN 
+    UnitsSold us 
+    ON p.product_id = us.product_id
+    AND us.purchase_date BETWEEN p.start_date AND p.end_date
+GROUP BY 
+    p.product_id;
