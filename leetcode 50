@@ -61,3 +61,7 @@ LEFT JOIN
     s.user_id = c.user_id
 GROUP BY
     s.user_id
+
+
+// basic aggrigate  function
+1. select * from cinema where id%2!=0 and description != 'boring' order by rating desc
